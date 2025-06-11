@@ -1,0 +1,135 @@
+{
+  "info": {
+    "name": "AMS API Test",
+    "_postman_id": "b71989a1-64ee-4b1e-9eeb-asset-test-collection",
+    "description": "Postman test collection for Asset Management System APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Category",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:3000/categories", "host": ["localhost"], "port": "3000", "path": ["categories"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Electronics\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get All Categories",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/categories", "host": ["localhost"], "port": "3000", "path": ["categories"] }
+      }
+    },
+    {
+      "name": "Create Location",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:3000/locations", "host": ["localhost"], "port": "3000", "path": ["locations"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Delhi Office\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Vendor",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:3000/vendors", "host": ["localhost"], "port": "3000", "path": ["vendors"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"HP Pvt Ltd\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Create Asset",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "http://localhost:3000/assets", "host": ["localhost"], "port": "3000", "path": ["assets"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"HP Laptop\",\n  \"category_id\": 1,\n  \"location_id\": 1,\n  \"status\": \"In Stock\",\n  \"condition\": \"New\",\n  \"brand\": \"HP\",\n  \"model\": \"Pavilion 15\",\n  \"description\": \"New laptop for engineering team\",\n  \"self_owned_partner\": \"Self-Owned\",\n  \"capitalization_date\": \"2024-06-01\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get All Assets",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/assets", "host": ["localhost"], "port": "3000", "path": ["assets"] }
+      }
+    },
+    {
+      "name": "Upload Asset Image",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "images",
+              "type": "file",
+              "src": "/path/to/sample-image.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/assets/1/images",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["assets", "1", "images"]
+        }
+      }
+    },
+    {
+      "name": "Upload Asset File",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "files",
+              "type": "file",
+              "src": "/path/to/sample-invoice.pdf"
+            },
+            {
+              "key": "category",
+              "value": "Invoice",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/assets/1/files",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["assets", "1", "files"]
+        }
+      }
+    },
+    {
+      "name": "Get Asset by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/assets/1",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["assets", "1"]
+        }
+      }
+    }
+  ]
+}
