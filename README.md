@@ -39,6 +39,13 @@ The system ensures accurate tracking, maintenance, and auditing of organizationa
 └── README.md
 ```
 
+## Setup Instructions
+
+1. Clone the project
+2. Run `npm install`
+3. Create a `.env` file based on `.env.example`
+4. Run the app with `npm start`
+
 ## ✅ Future Enhancements
 
 * Authentication/Authorization (JWT-based Admin & Staff roles)

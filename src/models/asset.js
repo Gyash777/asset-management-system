@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
     end_of_life: { type: DataTypes.DATE }
   }, {
     tableName: 'Assets',
-    timestamps: true,
+    timestamps: false,
     hooks: {
       beforeValidate: (asset) => {
         if (!asset.code) asset.code = `AST-${uuidv4().split('-')[0]}`;
